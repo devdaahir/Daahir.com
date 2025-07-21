@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Silanyo Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-container {
+            max-width: 350px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 2rem 2rem 1.5rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .logo-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #2d6a4f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+        }
+        .logo-circle img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        .login-heading {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1.2rem;
+            color: #2d6a4f;
+        }
+        .login-label {
+            text-align: left;
+            margin-bottom: 0.2rem;
+            color: #222;
+            font-size: 1rem;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #b7e4c7;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .login-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .login-btns button {
+            flex: 1 1 40%;
+            padding: 0.5rem 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .login-btns .login {
+            background: #40916c;
+            color: #fff;
+        }
+        .login-btns .cancel {
+            background: #b7e4c7;
+            color: #222;
+        }
+        .login-error {
+            color: #d90429;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-circle">
+            <img src="../Photos/Logo_library.jpg" alt="Logo">
+        </div>
+        <div class="login-heading">Silanyo Library Management System</div>
+        <form id="loginForm">
+            <div class="login-label">Username</div>
+            <input type="text" id="username" placeholder="Please Enter Your Username" required autofocus>
+            <br>
+            <br>
+            <div class="login-label">Password</div>
+            <input type="password" id="password" placeholder="Please Enter Your Password" required>
+            <div class="login-error" id="loginError">Invalid username or password!</div>
+            <div class="login-btns">
+                <button type="submit" class="login">Login</button>
+                <button type="button" class="cancel" onclick="window.location.href='index.html'">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            if(user === 'admin' && pass === '123') {
+                window.location.href = 'dashboard.html';
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>
